@@ -57,20 +57,20 @@ module warehouse_tracking::warehouse_tracking{
 
     public fun sellProduct(warehouse: &mut Warehouse, id: u16, quantity: u8) {
         assert!(!warehouse.products.contains(&id), NO_PRODUCT);
-        assert!(product.stock > quantity, NOT_ENOUGH_STOCK);
         let product = warehouse.products.get_mut(&id);
+        assert!(product.stock > quantity, NOT_ENOUGH_STOCK);
         product.stock = product.stock - quantity;
     }
 
     public fun supplyProduct(warehouse: &mut Warehouse, id: u16, quantity: u8) {
-        assert!(!warehouse.products.contains(&product_id), NO_PRODUCT);
+        assert!(!warehouse.products.contains(&id), NO_PRODUCT);
         let product = warehouse.products.get_mut(&id);
         product.stock = product.stock + quantity;
     }
 
-    public fun getProductInfo(warehouse: &mut Warehouse, product_id: u16): (Product) {
-        assert!(!warehouse.products.contains(&product_id), NO_PRODUCT);
-        let product = warehouse.products.get(&product_id);
+    public fun getProductInfo(warehouse: &mut Warehouse, id: u16): (Product) {
+        assert!(!warehouse.products.contains(&id), NO_PRODUCT);
+        let product = warehouse.products.get(&id);
         let productToReturn = Product {
             id: product.id,
             name: product.name,
