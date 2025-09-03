@@ -1,9 +1,9 @@
 [package]
-name = "Intro"
+name = "warehouse_tracking"
 version = "0.0.0"
 edition = "2024.beta"
 
 [addresses]
-starter = "0x0"
+warehouse_tracking = "0x0"
 
 [dependencies]
